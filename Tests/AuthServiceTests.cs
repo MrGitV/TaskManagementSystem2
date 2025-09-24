@@ -14,6 +14,7 @@ namespace TaskManagementAPI.Tests
         private readonly Mock<AppDbContext> _dbContextMock;
         private readonly AuthService _authService;
 
+        // Constructor to set up the mock context and service instance.
         public AuthServiceTests()
         {
             var options = new DbContextOptionsBuilder<AppDbContext>()
@@ -33,6 +34,7 @@ namespace TaskManagementAPI.Tests
         }
 
         [Fact]
+        // Tests that a valid JWT token is returned for correct user credentials.
         public async Task AuthenticateAsync_ValidCredentials_ReturnsToken()
         {
             var user = new User
@@ -44,23 +46,30 @@ namespace TaskManagementAPI.Tests
             };
             var users = new List<User> { user };
             _dbContextMock.Setup(c => c.Users).ReturnsDbSet(users);
-
             var response = await _authService.AuthenticateAsync("test", "pass");
-
             Assert.NotNull(response);
             Assert.IsType<LoginResponse>(response);
-            Assert.NotEmpty(response.Token!);
+            Assert.False(string.IsNullOrEmpty(response.Token));
         }
 
         [Fact]
-        public async Task AuthenticateAsync_InvalidCredentials_ReturnsNull()
+        // Tests that null is returned for an incorrect password.
+        public async Task AuthenticateAsync_InvalidPassword_ReturnsNull()
         {
-            var user = new User { Id = 1, Username = "test", PasswordHash = BCrypt.Net.BCrypt.HashPassword("wrong") };
+            var user = new User { Id = 1, Username = "test", PasswordHash = BCrypt.Net.BCrypt.HashPassword("correct_pass") };
             var users = new List<User> { user };
             _dbContextMock.Setup(c => c.Users).ReturnsDbSet(users);
+            var response = await _authService.AuthenticateAsync("test", "wrong_pass");
+            Assert.Null(response);
+        }
 
-            var response = await _authService.AuthenticateAsync("test", "pass");
-
+        [Fact]
+        // Tests that null is returned for a non-existent username.
+        public async Task AuthenticateAsync_UserNotFound_ReturnsNull()
+        {
+            var users = new List<User>();
+            _dbContextMock.Setup(c => c.Users).ReturnsDbSet(users);
+            var response = await _authService.AuthenticateAsync("nonexistent_user", "pass");
             Assert.Null(response);
         }
     }
