@@ -1,0 +1,29 @@
+﻿<Window x:Class="ClientApp.UI.Views.UserRegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:infra="clr-namespace:ClientApp.Infrastructure"
+        Title="{infra:TranslateExtension Key=UserRegistrationHeader}" 
+        Height="450" Width="400"
+        MinHeight="500" MinWidth="400"
+        WindowStartupLocation="CenterOwner" 
+        Background="{StaticResource PrimaryBackgroundBrush}">
+    <Grid>
+        <ComboBox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"
+                  SelectedIndex="0" SelectionChanged="LanguageComboBox_SelectionChanged">
+            <ComboBoxItem Content="English" Tag="en" />
+            <ComboBoxItem Content="Русский" Tag="ru" />
+        </ComboBox>
+        <StackPanel Margin="30" VerticalAlignment="Center">
+            <TextBlock Text="{infra:TranslateExtension Key=UserRegistrationHeader}" Style="{StaticResource HeaderTextBlock}" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+            <TextBlock Text="{infra:TranslateExtension Key=UsernameField}" />
+            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,10"/>
+            <TextBlock Text="{infra:TranslateExtension Key=PasswordField}" />
+            <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_OnPasswordChanged" Margin="0,5,0,10"/>
+            <TextBlock Text="{infra:TranslateExtension Key=FullNameField}" />
+            <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,20"/>
+            <Button Content="{infra:TranslateExtension Key=RegisterButton}" Command="{Binding RegisterCommand}" Width="150" Height="35" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding StatusMessage}" Foreground="{Binding StatusMessageColor}" Margin="0,10,0,0" TextAlignment="Center" TextWrapping="Wrap" Height="40"/>
+            <Button Content="{infra:TranslateExtension Key=ExitButton}" Margin="0,15,0,0" Width="100" HorizontalAlignment="Center" IsCancel="True" Style="{StaticResource CancelButton}"/>
+        </StackPanel>
+    </Grid>
+</Window>

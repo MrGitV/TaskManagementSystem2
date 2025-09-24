@@ -1,0 +1,23 @@
+﻿<Application x:Class="ClientApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:infra="clr-namespace:ClientApp.Infrastructure">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="UI/Styles/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <infra:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+            <infra:StringToBrushConverter x:Key="StringToBrushConverter"/>
+            <infra:NotNullToBoolConverter x:Key="NotNullToBoolConverter"/>
+            <infra:IntToBoolConverter x:Key="IntToBoolConverter"/>
+            <infra:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+            <infra:BoolToBackgroundConverter x:Key="BoolToBackgroundConverter"/>
+            <infra:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter"/>
+            <infra:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter"/>
+            <infra:BoolToTodayColorConverter x:Key="BoolToTodayColorConverter"/>
+            <infra:InverseBoolConverter x:Key="InverseBoolConverter"/>
+            <infra:TypeCheckConverter x:Key="TypeCheckConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

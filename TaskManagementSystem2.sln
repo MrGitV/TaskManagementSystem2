@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementAPI", "BackendApi\TaskManagementAPI.csproj", "{252DE743-8BA6-49FB-93B7-1C9B67DB5BE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6BCB99CE-2271-4308-A197-F6ED574DB766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{73A1092A-78BE-4E3A-9887-BAC6BBDE79A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{252DE743-8BA6-49FB-93B7-1C9B67DB5BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252DE743-8BA6-49FB-93B7-1C9B67DB5BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252DE743-8BA6-49FB-93B7-1C9B67DB5BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252DE743-8BA6-49FB-93B7-1C9B67DB5BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BCB99CE-2271-4308-A197-F6ED574DB766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BCB99CE-2271-4308-A197-F6ED574DB766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BCB99CE-2271-4308-A197-F6ED574DB766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BCB99CE-2271-4308-A197-F6ED574DB766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A1092A-78BE-4E3A-9887-BAC6BBDE79A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A1092A-78BE-4E3A-9887-BAC6BBDE79A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A1092A-78BE-4E3A-9887-BAC6BBDE79A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A1092A-78BE-4E3A-9887-BAC6BBDE79A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFFF715E-AC29-4579-B75F-27FEFAA228D8}
+	EndGlobalSection
+EndGlobal
